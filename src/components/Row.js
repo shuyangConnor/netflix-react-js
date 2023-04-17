@@ -55,7 +55,7 @@ const Row = ({ title, fetchURL }) => {
         </MdChevronLeft>
         <div id="slider" ref={slider} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
           {movies.map((item, id) => {
-            return <Movie item={item} key={item.id}></Movie>
+            return <Movie item={item} type={title} key={item.id}></Movie>
           })}
         </div>
         <MdChevronRight

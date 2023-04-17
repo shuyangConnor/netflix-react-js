@@ -9,6 +9,6 @@ export const store = configureStore({
     navbar: navbarReducer,
     main: mainReducer,
     row: rowReducer,
-    user: userReducer
+    user: userReducer,
   }
 })

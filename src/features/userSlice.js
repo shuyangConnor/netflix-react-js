@@ -1,15 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import { auth } from "../firebase"
+import { auth, db } from "../firebase"
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged
 } from "firebase/auth"
+import { setDoc, doc } from 'firebase/firestore'
 
 export const signUp = createAsyncThunk("user/signUp", async (args) => {
   try {
     await createUserWithEmailAndPassword(auth, args.email, args.password)
+    setDoc(doc(db, 'users', args.email), {
+      savedShows: []
+    })
     return { successful: true, message: "Sign up successful." }
   } catch (error) {
     return { successful: false, message: error.message }
