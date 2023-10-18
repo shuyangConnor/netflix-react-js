@@ -254,7 +254,7 @@ const rowSlice = createSlice({
         }
       )
       .addCase(saveShow.rejected, (state, payload) => {
-        console.log('Failed')
+        alert('Please log in to save shows.')
       })
   },
 })
